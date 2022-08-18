@@ -18,5 +18,5 @@ var minSubArrayLen = function (target, nums) {
 
   return res > n ? 0 : res
 }
-var target = 7, nums = [2,3,1,2,4,3]
+var target = 11, nums = [2,3,1,2,4,3]
 console.log(minSubArrayLen(target, nums));
