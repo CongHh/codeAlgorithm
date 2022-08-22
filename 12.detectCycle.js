@@ -8,6 +8,7 @@ var detectCycle = function(head) {
     slow = slow.next
     if(fast == slow) {
       // 相遇时，让通过画图可以得知从头节点和从相遇节点到入口的距离一样
+      // x+y = x+y+n(y+z)
       slow = head
       while( fast != slow) {
         fast = fast.next
