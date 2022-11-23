@@ -12,7 +12,7 @@
           if(ans[j] != strs[i][j])
               break;
       }
-      ans = ans.substr(0, j);
+      ans = ans.substring(0, j);
       if(ans === "")
           return ans;
   }
