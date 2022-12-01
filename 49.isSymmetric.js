@@ -9,6 +9,7 @@ var isSymmetric = function(root) {
     } else if(left.val !== right.val){
       return false
     }
+
     let outSide = compareNode(left.left, right.right)
     let inSide = compareNode(left.right, right.left)
     return outSide&&inSide
