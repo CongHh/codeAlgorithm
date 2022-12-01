@@ -18,4 +18,11 @@
   }
   return ans;
 };
-console.log(longestCommonPrefix(["flower","oi","flight"]));
+// console.log(longestCommonPrefix(["flower","oi","flight"]));
+
+function node(val) {
+  this.val = val
+  this.left = null
+}
+var a = node
+console.log(a.val);
