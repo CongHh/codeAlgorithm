@@ -23,3 +23,17 @@ var preorderTraversal = function (root) {
   dfs(root, res)
   return res
 };
+
+// 迭代
+const preorderTraversal1 = function(root, res = []) {
+  if(!root) return res
+  let stack = [root]
+  let cur = null
+  while(stack.length) {
+    cur = stack.pop()
+    res.push(cur.val)
+    cur.right && res.push(cur.right)
+    cur.left && res.push(cur.left)
+  }
+  return res
+}
