@@ -5,35 +5,36 @@
  *     this.left = (left===undefined ? null : left)
  *     this.right = (right===undefined ? null : right)
  * }
- * 给你二叉树的根节点 root ，返回它节点值的 前序 遍历。
+ * 给你一棵二叉树的根节点 root ，返回其节点值的 后序遍历 。
  */
 /**
  * @param {TreeNode} root
  * @return {number[]}
  */
+
 // 递归
-const dfs = function (root, res) {
-  if (root === null) return
-  res.push(root.val)
+const dfs = function(root, res) {
+  if(root === null) return
   dfs(root.left, res)
   dfs(root.right, res)
+  res.push(root.val)
 }
-var preorderTraversal = function (root) {
+var postorderTraversal = function(root) {
   let res = []
   dfs(root, res)
   return res
 };
 
 // 迭代
-const preorderTraversal1 = function(root, res = []) {
+const postorderTraversal1 = function(root, res = []) {
   if(!root) return res
   let stack = [root]
   let cur = null
   while(stack.length) {
     cur = stack.pop()
     res.push(cur.val)
-    cur.right && stack.push(cur.right)
     cur.left && stack.push(cur.left)
+    cur.right && stack.push(cur.right)
   }
-  return res
+  return res.reverse()
 }
