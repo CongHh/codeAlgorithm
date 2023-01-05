@@ -17,7 +17,7 @@
  */
 // 递归
 const help = (root, lower, upper) => {
-  if(root === null) return false
+  if(root === null) return true
   if(root.val <= lower || root.val >= upper) {
     return false
   }
