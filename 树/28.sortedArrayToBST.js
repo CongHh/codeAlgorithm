@@ -14,11 +14,11 @@
  */
 // 递归
 var sortedArrayToBST = function (nums) {
-  const buildTree = function(arr, left, right) {
-    if(left > right) {
+  const buildTree = function (arr, left, right) {
+    if (left > right) {
       return null
     }
-    let mid = Math.floor(left + (right - left)/2)
+    let mid = Math.floor(left + (right - left) / 2)
     let root = new TreeNode(arr[mid])
     root.left = buildTree(arr, left, mid - 1)
     root.right = buildTree(arr, mid + 1, right)
@@ -28,6 +28,35 @@ var sortedArrayToBST = function (nums) {
 };
 
 // 迭代
-var sortedArrayToBST1 = function(nums) {
-  
+var sortedArrayToBST1 = function (nums) {
+  if (nums.length === 0) return null
+  let root = new TreeNode(0) // 初始化根节点
+  let nodeQue = [root] // 放遍历的节点，并初始化
+  let leftQue = [0] // 放左区间的下标，初始化
+  let rightQue = [nums.length - 1] // 放右区间的下标
+  while (nodeQue.length) {
+    let curNode = nodeQue.pop()
+    let left = leftQue.pop()
+    let right = rightQue.pop()
+    let mid = left + Math.floor((right - left) / 2)
+
+    curNode.val = nums[mid]
+
+    // 处理左区间
+    if (left <= mid - 1) {
+      curNode.left = new TreeNode(0)
+      nodeQue.push(curNode.left)
+      leftQue.push(left)
+      rightQue.push(mid - 1)
+    }
+
+    // 处理右区间
+    if (right >= mid + 1) {
+      curNode.right = new TreeNode(0)
+      nodeQue.push(curNode.right)
+      leftQue.push(mid + 1)
+      rightQue.push(right)
+    }
+  }
+  return root
 }
