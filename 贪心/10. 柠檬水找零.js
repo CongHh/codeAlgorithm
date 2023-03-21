@@ -12,16 +12,16 @@
     for(let i =0;i<bills.length;i++) {
         let bill = bills[i]
         if(bill === 5) {
-            fiveCount ++
+            fiveCount += 1
         } else if(bill === 10) {
             if(fiveCount > 0) {
-                fiveCount--
-                tencCount++
+                fiveCount -= 1
+                tencCount += 1
             }else {return false}
         } else {
             if(tencCount > 0 && fiveCount > 0) {
-                tencCount--
-                fiveCount--
+                tencCount -= 1
+                fiveCount -= 1
             }else if(fiveCount >=3) {
                 fiveCount -= 3
             }else {
